@@ -1,8 +1,11 @@
-const canvas = new Canvas(1000, 600);
+const canvas = new Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
 canvas.createElement();
 
-let coin = new Coin(2);
-console.log(coin.value) // 1
-coin.x = 500;
-coin.y = 300;
-coin.draw(canvas.context);
+const generator = new Generator();
+// TODO: generate a coin 8 times using loops and the generator object
+// timelimit: 20:20
+for (let i = 0; i < 8; i++) {
+    generator.generate();
+}
+
+generator.drawCoins(canvas.context);
