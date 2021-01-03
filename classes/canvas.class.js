@@ -29,6 +29,6 @@ class Canvas {
 
     // TODO: Create a method clear() that will erase the entire canvas.
     clear() {
-        this.clearRect(0, 0, this.width, this.height)
+        this.context.clearRect(0, 0, this.width, this.height);
     }
 }

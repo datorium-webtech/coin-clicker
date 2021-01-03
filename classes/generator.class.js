@@ -28,6 +28,12 @@ class Generator {
         let maxY = CANVAS_HEIGHT - coin.size / 2;
         coin.x = Math.floor( Math.random() * (1 + maxX - min) ) + min;
         coin.y = Math.floor( Math.random() * (1 + maxY - min) ) + min;
+
+        // A function that will delete the coin after a while
+        const self = this;
+        setTimeout(function() {
+            self.expireCoin(coin);
+        }, 2000);
     }
 
     drawCoins(context) {
@@ -41,6 +47,12 @@ class Generator {
     } 
 
     expireCoin(coin) {
-
+        // find the index of the coin in the list of all coins
+        const index = this.coins.indexOf(coin);
+        // If the item exists
+        if (index > -1) {
+            // Remove the item from the list
+            this.coins.splice(index, 1);
+        }
     }
 }
